@@ -1,0 +1,8 @@
+# Ignora tudo
+*
+
+# Não ignora pastas (necessário para alcançar os YAMLs)
+!*/
+
+# Inclui qualquer docker-compose.yml em qualquer pasta
+!**/docker-compose.yml
