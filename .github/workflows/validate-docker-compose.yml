@@ -2,11 +2,8 @@ name: Validate Docker Compose
 
 on:
   push:
-    paths:
-      - "docker-compose*.yml"
   pull_request:
-    paths:
-      - "docker-compose*.yml"
+  workflow_dispatch:
 
 jobs:
   validate-docker-compose:
@@ -20,3 +17,4 @@ jobs:
 
       - name: Validate docker-compose.yml
         run: docker compose config
+
