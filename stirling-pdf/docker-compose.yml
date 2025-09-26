@@ -12,4 +12,4 @@ services:
       - ./StirlingPDF/pipeline:/pipeline/
     environment:
       - DISABLE_ADDITIONAL_FEATURES=false
-      - LANGS=en_GB
+      - LANGS=pt_BR
