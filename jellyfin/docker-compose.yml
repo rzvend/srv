@@ -1,0 +1,17 @@
+services:
+    jellyfin:
+        image: lscr.io/linuxserver/jellyfin:latest
+        container_name: jellyfin
+        environment:
+            - PUID=1000 # Substitua pelo UID do seu usuário (use 'id -u seu_usuario' para encontrar)
+            - PGID=1000 # Substitua pelo GID do seu grupo (use 'id -g seu_usuario' para encontrar)
+            - TZ=America/Sao_Paulo # Ajuste para o seu fuso horário, ex: America/Sao_Paulo
+        volumes:
+            - /srv/jellyfin/config:/config # Diretório para configuração do Jellyfin (crie se não existir)
+            - /srv/media/downloads:/data/movies # Seu diretório de filmes mapeado para dentro do container
+        ports:
+            - 8096:8096 # Porta HTTP principal
+            # - 8920:8920  # Opcional: Porta HTTPS (configure certificados se usar)
+            # - 7359:7359/udp  # Opcional: Descoberta de clientes na rede local
+            # - 1900:1900/udp  # Opcional: Descoberta DLNA
+        restart: unless-stopped
